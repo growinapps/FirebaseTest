@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseDatabase pDatabase;
     private DatabaseReference pDatabaseRef;
-    private ChildEventListener pChildEventListener;
+    //private ChildEventListener pChildEventListener;
 
     private ListView pListView;
     private ArrayAdapter<String> pArrayAdapter;
-    List<Object> Array = new ArrayList<Object>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +36,16 @@ public class MainActivity extends AppCompatActivity {
         InitState();
         InitDatabase();
 
+    }
+
+    private void InitState() {
+        pListView = (ListView)findViewById(R.id.lstMenu);
+
         //array adapter 정의
         pArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new ArrayList<String>());
 
         //listview와 adapter 연결
         pListView.setAdapter(pArrayAdapter);
-
-    }
-
-    private void InitState() {
-        pListView = (ListView)findViewById(R.id.lstMenu);
     }
 
     private void InitDatabase(){
