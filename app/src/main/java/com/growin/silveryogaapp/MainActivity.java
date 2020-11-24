@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void InitDatabase(){
         pDatabase = FirebaseDatabase.getInstance();
-        pDatabaseRef = pDatabase.getReference("SilverYoga").child("MainMenu");
+        pDatabaseRef = pDatabase.getReference("SilverYoga").child("Body");
 
         pDatabaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 pArrayAdapter.clear();
 
                 for (DataSnapshot ss : snapshot.getChildren()) {
-                    String strMenu = ss.getKey().toString() +" "+ ss.getValue().toString();
+                    String strMenu = ss.getKey();// +" "+ ss.getValue().toString();
                     pArrayAdapter.add(strMenu);
                 }
 
